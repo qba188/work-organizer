@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/work-organizer/static/css/main.d498bfb3.chunk.css",
+    "main.js": "/work-organizer/static/js/main.76dfacc6.chunk.js",
+    "main.js.map": "/work-organizer/static/js/main.76dfacc6.chunk.js.map",
+    "runtime~main.js": "/work-organizer/static/js/runtime~main.9734a684.js",
+    "runtime~main.js.map": "/work-organizer/static/js/runtime~main.9734a684.js.map",
+    "static/css/2.8042e004.chunk.css": "/work-organizer/static/css/2.8042e004.chunk.css",
+    "static/js/2.2fdd7a6f.chunk.js": "/work-organizer/static/js/2.2fdd7a6f.chunk.js",
+    "static/js/2.2fdd7a6f.chunk.js.map": "/work-organizer/static/js/2.2fdd7a6f.chunk.js.map",
+    "index.html": "/work-organizer/index.html",
+    "precache-manifest.bd216e58e4f7dcdd24e0e3f7871e4bba.js": "/work-organizer/precache-manifest.bd216e58e4f7dcdd24e0e3f7871e4bba.js",
+    "service-worker.js": "/work-organizer/service-worker.js",
+    "static/css/2.8042e004.chunk.css.map": "/work-organizer/static/css/2.8042e004.chunk.css.map",
+    "static/css/main.d498bfb3.chunk.css.map": "/work-organizer/static/css/main.d498bfb3.chunk.css.map"
+  }
+}
