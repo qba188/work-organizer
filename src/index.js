@@ -4,10 +4,11 @@ import './index.css';
 import Calendar from 'react-calendar';
 import Clock from 'react-clock';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {Container, Row, Col, DropdownButton, Dropdown} from 'react-bootstrap';
+import {Container, Row, Col, DropdownButton, Dropdown, Button, ButtonToolbar} from 'react-bootstrap';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { isThisHour } from 'date-fns';
 
 class MyCalendar extends React.Component {
     state = {
@@ -51,22 +52,6 @@ class MyClock extends React.Component {
     }
 }
 
-class DateTime extends MyClock {
-
-    render() {
-      return (
-        <div>
-        <Container>
-            <Row>
-                <Col><MyCalendar/></Col>
-                <Col><MyClock/></Col>
-            </Row>
-        </Container>
-        </div>
-      );
-    }
-}
-
 class MainDataPicker extends React.Component {
     constructor(props) {
       super(props);
@@ -94,6 +79,12 @@ class MainDataPicker extends React.Component {
             dateFormat="MMMM d, yyyy H:MM"
             timeCaption="time"
         />
+        <output>
+          <DatePicker
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+          />
+        </output>
        </div> 
       );
     }
@@ -113,7 +104,6 @@ class MainPerson extends React.Component {
           person: event.target.value,
       })
   }
-  
     render() {
       return (
        <div>
@@ -137,8 +127,7 @@ class MainTask extends React.Component {
           task: event.target.value,
       })
   }
-  
-    render() {
+  render() {
       return (
        <div>
          <textarea value={this.state.task} onChange={this.handleChange}></textarea>
@@ -169,5 +158,98 @@ class DropdownB extends React.Component {
       );
     }
 }
-ReactDOM.render(<MainTask />, document.getElementById('root'));
+
+class TaskButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  };
+
+  addtask = ()=>{
+    return ReactDOM.render(<AddedTasks />, document.getElementById('root'));
+  }
+
+  render() {
+    return (
+     <div>
+        <ButtonToolbar>
+          <Button variant="success" onClick={this.addtask}>Dodaj</Button>
+        </ButtonToolbar>
+     </div> 
+    );
+  }
+}
+
+
+
+
+
+
+//AdmDashboard
+class TaskAdd extends React.Component {
+
+  render() {
+    return (
+      <div>
+      <Container>
+          <Row>
+              <Col>
+                <MyCalendar/>
+              </Col>
+              <Col>
+                <MyClock/>
+              </Col>
+              <Col>
+                <MainPerson />
+                <MainTask />
+                <DropdownB />
+                <MainDataPicker />
+                <TaskButton />
+              </Col>
+          </Row>
+      </Container>
+      <div className='test'></div>
+      </div>
+    );
+  }
+}
+
+class AddedTasks extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  };
+
+  render() {
+    return (
+      <div>
+      <Container>
+          <Row>
+            <Col sm={2}>
+              <MainPerson/>
+            </Col>
+            <Col sm={2}>
+              <MainTask/>
+            </Col>
+            <Col sm={2}>
+              <DatePicker/>
+            </Col>
+            <Col sm={2}>
+              <DropdownB/>
+            </Col>
+          </Row>
+          
+      </Container>
+      </div>
+    );
+  }
+}
+
+
+
+ReactDOM.render(<TaskAdd />, document.getElementById('root'));
 
